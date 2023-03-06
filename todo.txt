@@ -1,0 +1,6 @@
+upload repository to github
+create readme
+explore data
+adapt to picle
+create 'data_description.txt'
+create license
