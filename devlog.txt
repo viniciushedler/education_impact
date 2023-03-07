@@ -1,0 +1,27 @@
+06/03/2023 9h-11h
+I started by downloading the data from UNData (yesterday)
+Every row is composed by index, country, year, column_name, value and some other things I'm not interested into
+While exploring the datastructure I was reading only the column names and one row
+That cost me some time because at some point I thought the column 'column_name' had only one value
+I saw it was wrong when looking to the 'GDP and GDP per capita' dataset
+The dataset has the name of two variables but only has one??
+To be honest this is a relief, because I was worried having so few columns would be a problem
+Also, this error is what motivated me to begin this devlog
+
+06/03/2023 21h-22h
+I made the function to read the csvs in the way I wanted
+It was somewhat easy to be honest
+I just had to read, rename and pivot to get intermediate df
+This dataframe had the values of the column 'Series' as columns and the value of the column 'Value' as value
+Then I joined this df to the intermediate df, which just added the country and year columns
+And then I used a groupby by year and country and summed the rows that were grouped
+This way I can check all variables for a given country in a given year by looking into one row
+
+22h-23h
+I found out that some values in the dataframe are in the style of '1,089.1'
+It should be easy to cast this to float with df.map
+Except that I thought map worked inplace, and didn't assign the return value
+So I spent a lot of time changing the casting function and debbuging, while all I had to do was save the result of my map
+Also I had forgotten to drop the column 'Series', which was left in there
+Now I really got a df with a row being a country, a year, and many NUMERIC columns with the wanted variables (value may be None)
+Time to commit

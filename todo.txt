@@ -1,6 +1,8 @@
 upload repository to github
 create readme
-explore data
-adapt to picle
+explore data (structure)
+prepare data structure
+adapt to pickle
 create 'data_description.txt'
+explore the data
 create license
